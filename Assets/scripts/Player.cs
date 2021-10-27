@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,35 +5,37 @@ public class Player : MonoBehaviour
 {
     private float playerSpeed = 10f;
 
+    private void HandleInput()
+    {
+        float horizontalDirection = Input.GetAxis("Horizontal");
+        transform.Translate(horizontalDirection * playerSpeed * Time.deltaTime, 0, 0);
+    }
+
+    #region InteractionCode
     [SerializeField] List<Collider2D> interactablesList;
 
-    // Start is called before the first frame update
     void Start()
     {
         interactablesList = new List<Collider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Move();
-        if(Input.GetButtonDown("Fire1"))
+        HandleInput();
+        HandleInteractions();
+    }
+
+    private void HandleInteractions()
+    {
+        if (Input.GetButtonDown("Fire1")||Input.GetKeyDown(KeyCode.E))
         {
-            foreach(Collider2D interactableObject in interactablesList)
+            foreach (Collider2D interactableObject in interactablesList)
             {
                 interactableObject.GetComponent<IInteractable>().Interact();
             }
         }
     }
 
-    private void Move()
-    {
-        float horizontalDirection = Input.GetAxis("Horizontal");
-        transform.Translate(horizontalDirection * playerSpeed * Time.deltaTime, 0, 0);
-    }
-
- 
-    //called when something enters the trigger
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
         //if the object is not already in the list
@@ -58,4 +58,7 @@ public class Player : MonoBehaviour
             interactablesList.Remove(otherCollider);
         }
     }
+    #endregion
+
+
 }

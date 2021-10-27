@@ -1,7 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// I will not add requiere for SpriteRenderer because we may not use it later
+[RequireComponent(typeof(Rigidbody2D))]
 public class Door : MonoBehaviour, IActivate
 {
     private Rigidbody2D rigidBody;
@@ -10,7 +11,6 @@ public class Door : MonoBehaviour, IActivate
     private bool isActive;
     [SerializeField] float activeTime = 0f;
 
-    // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -19,10 +19,9 @@ public class Door : MonoBehaviour, IActivate
         isActive = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Activate()
@@ -51,7 +50,7 @@ public class Door : MonoBehaviour, IActivate
 
     public void Toggle()
     {
-        if(isActive)
+        if (isActive)
         {
             Deactivate();
         }
@@ -63,7 +62,7 @@ public class Door : MonoBehaviour, IActivate
 
     public void ActivateForSeconds(float time_t)
     {
-        if(!isActive)
+        if (!isActive)
             StartCoroutine(TemporalActivation(time_t));
     }
 
