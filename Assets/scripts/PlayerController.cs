@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,21 +6,24 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 45;
     private Rigidbody2D _rigidbody;
 
-    // Start is called before the first frame update
-    void Start(){
+    void Start()
+    {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update(){
+    void Update()
+    {
         CheckPlayerInput();
     }
 
-    void CheckPlayerInput(){
+    void CheckPlayerInput()
+    {
         var movement = Input.GetAxisRaw("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * playerSpeed;
 
-        if(Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.0001){
+        bool is_grounded = Mathf.Abs(_rigidbody.velocity.y) < 0.0001;// looks ok but maybe its not the only way to check .. imagine you are on a slope .. then your velocity might not be 0 but you may still be grounded
+        if (Input.GetButtonDown("Jump") && is_grounded)
+        {
             _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }

@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public abstract class Platform : MonoBehaviour, IActivate
 {
     [SerializeField]
@@ -27,6 +27,18 @@ public abstract class Platform : MonoBehaviour, IActivate
     {
         is_active = false;
     }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+
+        col.transform.parent = null;
+
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        col.transform.parent = transform;
+    }
+
 
     public abstract void Diminish();
     public abstract void Enhance();

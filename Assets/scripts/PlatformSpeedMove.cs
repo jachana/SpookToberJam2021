@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class PlatformSpeedMove : Platform
@@ -12,13 +11,11 @@ public class PlatformSpeedMove : Platform
     Vector3 initial_position;
     float clock, enhancment_multiplier = 1.2f;
 
-    // Start is called before the first frame update
     void Start()
     {
         initial_position = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (is_active)

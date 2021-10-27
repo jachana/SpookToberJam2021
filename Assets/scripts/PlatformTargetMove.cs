@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlatformTargetMove : Platform
@@ -21,14 +19,12 @@ public class PlatformTargetMove : Platform
         target_position = desired_position.position;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         starting_position = transform.position;
         target_position = starting_position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (is_active)
