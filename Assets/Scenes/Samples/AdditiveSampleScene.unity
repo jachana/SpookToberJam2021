@@ -267,18 +267,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c0466c2ab779942adf4e6e08d8f12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  callOnInteract:
+  CallOnInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 422473006}
         m_TargetAssemblyTypeName: Door, Assembly-CSharp
-        m_MethodName: Activate
-        m_Mode: 1
+        m_MethodName: ActivateForSeconds
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -473,11 +473,23 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: offset
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _offset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: is_active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _is_active
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -486,6 +498,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _movement_vector.y
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -677,7 +693,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: is_active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _is_active
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -687,6 +711,10 @@ PrefabInstance:
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _movement_vector.x
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -750,7 +778,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: is_active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _is_active
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -760,6 +796,10 @@ PrefabInstance:
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _movement_vector.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -1038,7 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae69ccf1e13ff444ba9dbfab62500ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTime: 0
+  active_time: 0
 --- !u!1 &449571809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,24 +1242,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c0466c2ab779942adf4e6e08d8f12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  callOnInteract:
+  CallOnInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1440350708}
         m_TargetAssemblyTypeName: Door, Assembly-CSharp
-        m_MethodName: ActivateForSeconds
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 4
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 422473006}
-        m_TargetAssemblyTypeName: Door, Assembly-CSharp
-        m_MethodName: Deactivate
+        m_MethodName: Activate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1335,7 +1363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471045613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 206.44, y: -3.57, z: 0}
+  m_LocalPosition: {x: 145.96, y: -3.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1480,7 +1508,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: is_active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _is_active
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -1490,6 +1526,10 @@ PrefabInstance:
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _movement_vector.y
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -1680,7 +1720,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: is_active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _is_active
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -1690,6 +1738,10 @@ PrefabInstance:
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _movement_vector.x
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -1806,11 +1858,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: offset
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _offset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: is_active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _is_active
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -1820,6 +1884,10 @@ PrefabInstance:
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _movement_vector.y
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -1855,7 +1923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae69ccf1e13ff444ba9dbfab62500ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTime: 0
+  active_time: 0
 --- !u!50 &985364264
 Rigidbody2D:
   serializedVersion: 4
@@ -2256,6 +2324,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: offset
       value: 0
       objectReference: {fileID: 0}
@@ -2264,11 +2336,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _is_active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _movement_vector.y
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2553,7 +2633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f3eb4489758a14a925e0185215fc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  callOnInteract:
+  CallOnInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 985364263}
@@ -2600,7 +2680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae69ccf1e13ff444ba9dbfab62500ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTime: 0
+  active_time: 0
 --- !u!50 &1440350709
 Rigidbody2D:
   serializedVersion: 4
@@ -2773,6 +2853,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: offset
       value: 0
       objectReference: {fileID: 0}
@@ -2781,11 +2865,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _is_active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _movement_vector.y
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3636,11 +3728,23 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: offset
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _offset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: is_active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _is_active
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
@@ -3649,6 +3753,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
       propertyPath: movement_vector.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825136895324413845, guid: 5b9672f42821215408159a1a7c8e345d, type: 3}
+      propertyPath: _movement_vector.y
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3837,6 +3945,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6164810962065205668, guid: c4ae0a0e6c08b4846a5d48754cac028d, type: 3}
       propertyPath: playerSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164810962065205668, guid: c4ae0a0e6c08b4846a5d48754cac028d, type: 3}
+      propertyPath: _player_speed
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8086472143281966872, guid: c4ae0a0e6c08b4846a5d48754cac028d, type: 3}

@@ -5,18 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Door : MonoBehaviour, IActivate
 {
-    private Rigidbody2D rigidBody;
-    private SpriteRenderer sprite;
+    private Rigidbody2D _rigid_body;
+    private SpriteRenderer _sprite;
 
-    private bool isActive;
-    [SerializeField] float activeTime = 0f;
+    private bool is_active;
+    [SerializeField] float active_time = 0f;
 
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        _rigid_body = GetComponent<Rigidbody2D>();
+        _sprite = GetComponent<SpriteRenderer>();
 
-        isActive = false;
+        is_active = false;
     }
 
     void Update()
@@ -26,16 +26,16 @@ public class Door : MonoBehaviour, IActivate
 
     public void Activate()
     {
-        rigidBody.simulated = false;
-        sprite.color = Color.cyan;
-        isActive = true;
+        _rigid_body.simulated = false;
+        _sprite.color = Color.cyan;
+        is_active = true;
     }
 
     public void Deactivate()
     {
-        rigidBody.simulated = true;
-        sprite.color = Color.yellow;
-        isActive = false;
+        _rigid_body.simulated = true;
+        _sprite.color = Color.yellow;
+        is_active = false;
     }
 
     public void Enhance()
@@ -50,7 +50,7 @@ public class Door : MonoBehaviour, IActivate
 
     public void Toggle()
     {
-        if (isActive)
+        if (is_active)
         {
             Deactivate();
         }
@@ -62,7 +62,7 @@ public class Door : MonoBehaviour, IActivate
 
     public void ActivateForSeconds(float time_t)
     {
-        if (!isActive)
+        if (!is_active)
             StartCoroutine(TemporalActivation(time_t));
     }
 

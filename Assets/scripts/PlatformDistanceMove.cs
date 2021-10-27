@@ -3,35 +3,35 @@ using UnityEngine;
 public class PlatformDistanceMove : Platform
 {
     [SerializeField]
-    float speed;
+    float _speed;
 
     [SerializeField]
-    Vector3 movement_vector;
+    Vector3 _movement_vector;
 
-    Vector3 initial_position;
-    float clock, enhancment_multiplier = 1.2f;
+    Vector3 _initial_position;
+    float _clock, _enhancment_multiplier = 1.2f;
 
     void Start()
     {
-        initial_position = transform.position;
+        _initial_position = transform.position;
     }
 
     void Update()
     {
-        if (is_active)
+        if (_is_active)
         {
-            clock += Time.deltaTime * speed;
-            transform.position = Vector3.Lerp(transform.position, initial_position + movement_vector * Mathf.Sin(clock), .5f);
+            _clock += Time.deltaTime * _speed;
+            transform.position = Vector3.Lerp(transform.position, _initial_position + _movement_vector * Mathf.Sin(_clock), .5f);
         }
     }
 
     public override void Diminish()
     {
-        movement_vector /= enhancment_multiplier;
+        _movement_vector /= _enhancment_multiplier;
     }
 
     public override void Enhance()
     {
-        movement_vector *= enhancment_multiplier;
+        _movement_vector *= _enhancment_multiplier;
     }
 }

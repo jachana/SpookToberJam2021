@@ -6,9 +6,9 @@ using UnityEngine.Events;
 public class ToggleButton : MonoBehaviour, IInteractable
 {
 
-    bool isActive = false;
+    bool _is_active = false;
 
-    [SerializeField] public UnityEvent callOnInteract;
+    [SerializeField] public UnityEvent CallOnInteract;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class ToggleButton : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (!isActive)
+        if (!_is_active)
         {
             Activate();
         }
@@ -26,19 +26,19 @@ public class ToggleButton : MonoBehaviour, IInteractable
         {
             Deactivate();
         }
-        isActive = !isActive;
+        _is_active = !_is_active;
     }
 
     private void Activate()
     {
-        callOnInteract.Invoke();
+        CallOnInteract.Invoke();
         GetComponent<SpriteRenderer>().color = Color.green;
         transform.parent.transform.rotation = Quaternion.Euler(0, 0, 135f);
     }
 
     private void Deactivate()
     {
-        callOnInteract.Invoke();
+        CallOnInteract.Invoke();
         GetComponent<SpriteRenderer>().color = Color.red;
         transform.parent.transform.rotation = Quaternion.Euler(0, 0, 45f);
     }

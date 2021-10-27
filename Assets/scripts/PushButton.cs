@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PushButton : MonoBehaviour, IInteractable
 {
-    [SerializeField] public UnityEvent callOnInteract;
+    [SerializeField] public UnityEvent CallOnInteract;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class PushButton : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        callOnInteract.Invoke();
+        CallOnInteract.Invoke();
         StartCoroutine(ChangeVisualAspect());
     }
 

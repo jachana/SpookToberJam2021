@@ -5,11 +5,11 @@ using UnityEngine;
 public abstract class Platform : MonoBehaviour, IActivate
 {
     [SerializeField]
-    protected bool is_active;
+    protected bool _is_active;
 
     public virtual void Activate()
     {
-        is_active = true;
+        _is_active = true;
     }
 
     public virtual void ActivateForSeconds(float time_t)
@@ -25,7 +25,7 @@ public abstract class Platform : MonoBehaviour, IActivate
 
     public virtual void Deactivate()
     {
-        is_active = false;
+        _is_active = false;
     }
 
     void OnCollisionExit2D(Collision2D col)
@@ -45,6 +45,6 @@ public abstract class Platform : MonoBehaviour, IActivate
 
     public virtual void Toggle()
     {
-        is_active = !is_active;
+        _is_active = !_is_active;
     }
 }
