@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlatformSpeedMove : Platform
 {
     [SerializeField]
-    float speed;
+    float speed, offset;
 
     [SerializeField]
     Vector3 movement_vector;
@@ -13,6 +13,7 @@ public class PlatformSpeedMove : Platform
 
     void Start()
     {
+        clock = offset *= Mathf.PI;
         initial_position = transform.position;
     }
 
@@ -21,7 +22,7 @@ public class PlatformSpeedMove : Platform
         if (is_active)
         {
             clock += Time.deltaTime * speed;
-            transform.position = Vector3.Lerp(transform.position, initial_position + movement_vector * Mathf.Sin(clock), .5f);
+            transform.position = Vector3.Lerp(transform.position, initial_position + movement_vector * Mathf.Sin(clock ), .5f);
         }
     }
 
