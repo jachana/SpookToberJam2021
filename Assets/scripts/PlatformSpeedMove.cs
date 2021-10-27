@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class PlatformSpeedMove : Platform
 {
-    [SerializeField]
-    float _speed, _offset;
 
     [SerializeField]
     Vector3 _movement_vector;

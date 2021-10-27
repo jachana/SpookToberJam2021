@@ -1,50 +1,32 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-public abstract class Platform : MonoBehaviour, IActivate
+public class Platform : PlatformBase
 {
     [SerializeField]
-    protected bool _is_active;
+    protected float _speed, _offset;
 
-    public virtual void Activate()
+    public override void Diminish()
     {
-        _is_active = true;
+        throw new System.NotImplementedException();
     }
 
-    public virtual void ActivateForSeconds(float time_t)
+    public override void Enhance()
     {
-        StartCoroutine(TemporalToggle(time_t));
-    }
-    public virtual IEnumerator TemporalToggle(float time_t)
-    {
-        Enhance();
-        yield return new WaitForSecondsRealtime(time_t);
-        Diminish();
+        throw new System.NotImplementedException();
     }
 
-    public virtual void Deactivate()
+    void OnCollisionEnter2D(Collision2D col)
     {
-        _is_active = false;
+        col.transform.parent = transform;
+        if (col.gameObject.tag == "Pushable" && !col.gameObject.GetComponent<Platform>())
+        {
+            col.gameObject.AddComponent<Platform>();
+        }
     }
 
     void OnCollisionExit2D(Collision2D col)
     {
-
         col.transform.parent = null;
-
-    }
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        col.transform.parent = transform;
-    }
-
-
-    public abstract void Diminish();
-    public abstract void Enhance();
-
-    public virtual void Toggle()
-    {
-        _is_active = !_is_active;
     }
 }

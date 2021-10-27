@@ -3,9 +3,6 @@ using UnityEngine;
 public class PlatformTargetMove : Platform
 {
     [SerializeField]
-    float _speed = 1;
-
-    [SerializeField]
     Transform _desired_position;
     Vector3 _starting_position, _target_position;
 
