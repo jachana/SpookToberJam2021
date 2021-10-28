@@ -5,8 +5,9 @@ using UnityEngine;
 public class FieldOfView : MonoBehaviour
 {
     private Mesh mesh;
-
     private Vector3 origin;
+
+    [SerializeField] private LayerMask layerMask;
     [SerializeField] private int ray_count = 20;
     [SerializeField] private float startingAngle = 0f;
     [SerializeField] private float fov_degrees = 45f;
@@ -22,7 +23,6 @@ public class FieldOfView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //origin = transform.position;
         float angle = startingAngle;
         float angle_increase = fov_degrees / ray_count;
 
@@ -38,7 +38,7 @@ public class FieldOfView : MonoBehaviour
         for (int i = 0; i <= ray_count; i++)
         {
             Vector3 vertex;
-            RaycastHit2D raycast_hit = Physics2D.Raycast(origin, GetVector3FromAngle(angle), view_distance);
+            RaycastHit2D raycast_hit = Physics2D.Raycast(origin, GetVector3FromAngle(angle), view_distance, layerMask);
 
             if (raycast_hit.collider == null)
             {

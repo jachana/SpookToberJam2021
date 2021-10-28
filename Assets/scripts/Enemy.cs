@@ -15,9 +15,15 @@ public class Enemy : MonoBehaviour
     [System.Serializable]
     public struct PatrolPoint
     {
-        public Vector2 destination;
+        public float x_destination;
         public float idle_time_after_arrival;
-        public Vector2 facing_direction;
+        public FacingDirection idle_facing_direction;
+    }
+
+    public enum FacingDirection
+    {
+        left = -1, 
+        right = 1
     }
 
     // Start is called before the first frame update
@@ -28,13 +34,14 @@ public class Enemy : MonoBehaviour
         if(patrol_points.Count == 0)
         {
             PatrolPoint currentPoint = new PatrolPoint();
-            currentPoint.destination = transform.position;
-            currentPoint.facing_direction = Vector2.right;
+            currentPoint.x_destination = transform.position.x;
+            currentPoint.idle_facing_direction = FacingDirection.right;
 
             patrol_points.Add(currentPoint);
         }
 
-        FaceDirection(patrol_points[current_patrol_point].facing_direction);
+        Vector2 direction = new Vector2((float)patrol_points[current_patrol_point].idle_facing_direction, 0);
+        FaceDirection(direction);
     }
 
     // Update is called once per frame
@@ -51,7 +58,7 @@ public class Enemy : MonoBehaviour
         {
             Move(speed * Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, patrol_points[current_patrol_point].destination) == 0)
+            if (transform.position.x - patrol_points[current_patrol_point].x_destination == 0)
             {
                 is_idle = true;
                 StartCoroutine(WaitForNextPoint());
@@ -76,14 +83,17 @@ public class Enemy : MonoBehaviour
 
     private void Move(float distance)
     {
-        transform.position = Vector3.MoveTowards(transform.position, patrol_points[current_patrol_point].destination, distance);
-        Vector2 direction = new Vector2(patrol_points[current_patrol_point].destination.x - transform.position.x, 0);
+        Vector2 destinationPoint = new Vector2(patrol_points[current_patrol_point].x_destination, transform.position.y);
+        transform.position = Vector3.MoveTowards(transform.position, destinationPoint, distance);
+
+        Vector2 direction = new Vector2(patrol_points[current_patrol_point].x_destination - transform.position.x, 0);
         FaceDirection(direction);
     }
 
     private IEnumerator WaitForNextPoint()
     {
-        FaceDirection(patrol_points[current_patrol_point].facing_direction);
+        Vector2 direction = new Vector2((float)patrol_points[current_patrol_point].idle_facing_direction, 0);
+        FaceDirection(direction);
         yield return new WaitForSeconds(patrol_points[current_patrol_point].idle_time_after_arrival);
 
         current_patrol_point = (current_patrol_point + 1) % patrol_points.Count;
