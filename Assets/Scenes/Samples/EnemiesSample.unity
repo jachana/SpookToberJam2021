@@ -533,10 +533,10 @@ MonoBehaviour:
   - x_destination: 0
     idle_time_after_arrival: 2
     idle_facing_direction: -1
-  - x_destination: 0
+  - x_destination: 7
     idle_time_after_arrival: 4
     idle_facing_direction: 1
-  speed: 1
+  speed: 2
 --- !u!212 &1914615117
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 2061337916}
   m_Layer: 9
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

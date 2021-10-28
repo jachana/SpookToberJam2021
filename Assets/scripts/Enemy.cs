@@ -83,8 +83,8 @@ public class Enemy : MonoBehaviour
 
     private void Move(float distance)
     {
-        Vector2 destinationPoint = new Vector2(patrol_points[current_patrol_point].x_destination, transform.position.y);
-        transform.position = Vector3.MoveTowards(transform.position, destinationPoint, distance);
+        Vector2 destination_point = new Vector2(patrol_points[current_patrol_point].x_destination, transform.position.y);
+        transform.position = Vector3.MoveTowards(transform.position, destination_point, distance);
 
         Vector2 direction = new Vector2(patrol_points[current_patrol_point].x_destination - transform.position.x, 0);
         FaceDirection(direction);
@@ -96,7 +96,20 @@ public class Enemy : MonoBehaviour
         FaceDirection(direction);
         yield return new WaitForSeconds(patrol_points[current_patrol_point].idle_time_after_arrival);
 
-        current_patrol_point = (current_patrol_point + 1) % patrol_points.Count;
+        NextPatrolPoint();
         is_idle = false;
+    }
+
+    private void NextPatrolPoint()
+    {
+        current_patrol_point = (current_patrol_point + 1) % patrol_points.Count;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag.Equals("Object"))
+        {
+            NextPatrolPoint();
+        }
     }
 }
