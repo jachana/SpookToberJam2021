@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class PlatformDistanceMove : Platform
 {
-    [SerializeField]
-    float _speed;
 
     [SerializeField]
     Vector3 _movement_vector;
