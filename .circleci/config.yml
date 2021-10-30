@@ -1,34 +1,41 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
-jobs:
-  # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
-  build-and-test:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    # Be sure to update the tag on this image to a more stable version, using latest can result in unstable builds.
+executors:
+  unity:
     docker:
-      - image: microsoft/dotnet:latest
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      # https://hub.docker.com/r/gableroux/unity3d/tags
+      - image: gableroux/unity3d:2018.2.21f1
+jobs:
+  build-test:
+    executor: unity
     steps:
-      # Checkout the code as the first step.
       - checkout
-      # Then simply use the dotnet container as you'd expect and run your tests
-      - run:
-          # Update this line with the directory that contains your tests project file
-          working_directory: ~/project/App.Tests
-          name: Run tests
-          command: |
-            dotnet test
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+      # Install zip
+      - run: apt-get update
+      - run: apt-get install zip -y
+
+      # Decrypt the license file
+      - run: openssl aes-256-cbc -d -in .circleci/Unity_v2017.x.ulf.enc -k ${UNITY_LICENSE_DECRYPT_KEY} >> .circleci/Unity_v2017.x.ulf
+      
+      # Activate unity
+      - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .circleci/Unity_v2017.x.ulf || exit 0
+      
+      # Build Windows and OSX
+      - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath . -buildWindows64Player ./bin-win64/CISample.exe
+      - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath . -buildOSXUniversalPlayer ./bin-osx/CISample.app      
+      
+      # Zip builds
+      - run: zip -r CISampleWin64Binary.zip ./bin-win64
+      - run: zip -r CISampleOSXBinary.zip ./bin-osx
+
+      # Store builds
+      - store_artifacts:
+          path: ./CISampleWin64Binary.zip
+      - store_artifacts:
+          path: ./CISampleOSXBinary.zip
+
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  version: 2
+  build:
     jobs:
-      - build-and-test
+      - build-test
