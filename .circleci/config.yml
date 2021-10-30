@@ -15,10 +15,10 @@ jobs:
       - run: apt-get install zip -y
 
       # Decrypt the license file
-      - run: openssl aes-256-cbc -d -in .circleci/Unity_v2018.x.ulf.enc -k ${UNITY_LICENSE_DECRYPT_KEY} >> .circleci/Unity_v2018.x.ulf
+      - run: openssl aes-256-cbc -d -in .circleci/Unity_v2017.x.ulf.enc -k ${UNITY_LICENSE_DECRYPT_KEY} >> .circleci/Unity_v2017.x.ulf
       
       # Activate unity
-      - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .circleci/Unity_v2018.x.ulf || exit 0
+      - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .circleci/Unity_v2017.x.ulf || exit 0
       
       # Build Windows and OSX
       - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath . -buildWindows64Player ./bin-win64/CISample.exe
