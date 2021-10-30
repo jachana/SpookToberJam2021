@@ -64,27 +64,27 @@ executors:
         path: build.zip
 
 jobs:
-  # test_editmode:
-  #   <<: *test
-  #   environment:
-  #     TEST_PLATFORM: editmode
-  # test_playmode:
-  #   <<: *test
-  #   environment:
-  #     TEST_PLATFORM: playmode
+  test_editmode:
+    <<: *test
+    environment:
+      TEST_PLATFORM: editmode
+  test_playmode:
+    <<: *test
+    environment:
+      TEST_PLATFORM: playmode
 
-  # build_windows:
-  #   <<: *build
-  #   environment:
-  #     BUILD_TARGET: StandaloneWindows64
-  # build_osx:
-  #   <<: *build
-  #   environment:
-  #     BUILD_TARGET: StandaloneOSX
-  # build_linux:
-  #   <<: *build
-  #   environment:
-  #     BUILD_TARGET: StandaloneLinux64
+  build_windows:
+    <<: *build
+    environment:
+      BUILD_TARGET: StandaloneWindows64
+  build_osx:
+    <<: *build
+    environment:
+      BUILD_TARGET: StandaloneOSX
+  build_linux:
+    <<: *build
+    environment:
+      BUILD_TARGET: StandaloneLinux64
   build_webgl:
     <<: *build
     environment:
