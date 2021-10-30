@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class PlayerInteractions : MonoBehaviour
 {
     [SerializeField] List<Collider2D> _interactables_list;
@@ -17,12 +18,14 @@ public class PlayerInteractions : MonoBehaviour
 
     private void HandleInteractions()
     {
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.E))
+        foreach (Collider2D interactableObject in _interactables_list)
         {
-            foreach (Collider2D interactableObject in _interactables_list)
+            if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.E))
             {
-                interactableObject.GetComponent<IInteractable>().Interact();
+                interactableObject.GetComponent<IInteractable>().ManualInteract();
             }
+            interactableObject.GetComponent<IInteractable>().AutoInteract();
+
         }
     }
 

@@ -16,19 +16,6 @@ public class ToggleButton : MonoBehaviour, IInteractable
 
     }
 
-    public void Interact()
-    {
-        if (!_is_active)
-        {
-            Activate();
-        }
-        else
-        {
-            Deactivate();
-        }
-        _is_active = !_is_active;
-    }
-
     private void Activate()
     {
         CallOnInteract.Invoke();
@@ -43,4 +30,21 @@ public class ToggleButton : MonoBehaviour, IInteractable
         transform.parent.transform.rotation = Quaternion.Euler(0, 0, 45f);
     }
 
+    public void ManualInteract()
+    {
+        if (!_is_active)
+        {
+            Activate();
+        }
+        else
+        {
+            Deactivate();
+        }
+        _is_active = !_is_active;
+    }
+
+    public void AutoInteract()
+    {
+        //highlight?
+    }
 }

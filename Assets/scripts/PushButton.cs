@@ -7,18 +7,6 @@ public class PushButton : MonoBehaviour, IInteractable
 {
     [SerializeField] public UnityEvent CallOnInteract;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    public void Interact()
-    {
-        CallOnInteract.Invoke();
-        StartCoroutine(ChangeVisualAspect());
-    }
-
     private IEnumerator ChangeVisualAspect()
     {
         GetComponent<SpriteRenderer>().color = Color.green;
@@ -26,5 +14,16 @@ public class PushButton : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(1);
 
         GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    public void ManualInteract()
+    {
+        CallOnInteract.Invoke();
+        StartCoroutine(ChangeVisualAspect());
+    }
+
+    public void AutoInteract()
+    {
+        //highlight?
     }
 }
